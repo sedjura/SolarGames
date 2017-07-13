@@ -1,6 +1,3 @@
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using SolarGames.Annotations;
 using SolarGames.Model.Model;
 
 namespace SolarGames.ViewModel
@@ -22,13 +19,6 @@ namespace SolarGames.ViewModel
         public UserViewModel(User user)
         {
             Name = user.Name;
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

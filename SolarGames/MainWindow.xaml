@@ -3,14 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SolarGames"
+        xmlns:viewModel="clr-namespace:SolarGames.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
-    <Grid x:Name="LayoutGrid">
+    <Grid x:Name="LayoutGrid" >
         <DockPanel HorizontalAlignment="Left" Height="669" LastChildFill="False" Margin="10,10,0,0" VerticalAlignment="Top" Width="1252"/>
-        <ListBox ItemsSource="{Binding Users}" Margin="0,0,825,0">
+        <ListBox ItemsSource="{Binding Users}" Margin="0,0,825,0" >
             <ListBox.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate DataType="viewModel:UserViewModel">
                     <StackPanel>
                         <TextBlock Text="{Binding Name}" />
                     </StackPanel>
