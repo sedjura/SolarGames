@@ -7,16 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
     <Grid x:Name="LayoutGrid">
-        <Grid x:Name ="UsersGrid" HorizontalAlignment="Left" ShowGridLines ="true" Margin="10,10,0,0" VerticalAlignment="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Grid.Row="0" Content="Строка 0 Столбец 0"  />
-            <Button Grid.Column="1" Grid.Row="0" Content="Строка 0 Столбец 1" />
-            <Button Grid.Column="2" Grid.Row="0" Content="Строка 2 Столбец 2"  />
-        </Grid>
+        <DockPanel HorizontalAlignment="Left" Height="669" LastChildFill="False" Margin="10,10,0,0" VerticalAlignment="Top" Width="1252"/>
+        <ListBox ItemsSource="{Binding Users}" Margin="0,0,825,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
 

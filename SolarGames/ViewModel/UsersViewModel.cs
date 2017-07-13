@@ -1,19 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
+using SolarGames.Annotations;
+using SolarGames.Model;
 
 namespace SolarGames.ViewModel
 {
-    class UsersViewModel
+    public class UsersViewModel : BaseViewModel
     {
-        public ObservableCollection<User> Users;
+        public ObservableCollection<UserViewModel> Users { get; set; }
 
         public UsersViewModel()
         {
-            Users = new ObservableCollection<User>();
+            using (var context = new SolarGamesContext())
+            {
+                var contextUsers = context.Users.ToList();
+                Users = new ObservableCollection<UserViewModel>(contextUsers.Select(user => new UserViewModel(user)));
+            }
         }
     }
 }

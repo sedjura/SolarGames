@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Windows;
 using SolarGames.Model;
+using SolarGames.ViewModel;
 
 namespace SolarGames
 {
@@ -12,9 +13,11 @@ namespace SolarGames
         public MainWindow()
         {
             InitializeComponent();
-            Database.SetInitializer(new SolarGamesInitializer());
-            var db = new SolarGamesContext();
-            db.Database.Initialize(true);   // force database creation
+            
+            DataContext = new UsersViewModel();
+            //Database.SetInitializer(new SolarGamesInitializer());
+            /*var db = new SolarGamesContext();
+            db.Database.Initialize(true);   // force database creation*/
         }
 
     }
